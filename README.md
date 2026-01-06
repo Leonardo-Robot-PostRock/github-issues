@@ -28,7 +28,8 @@ Desarrollar una aplicación que consume la **API de GitHub** para explorar issue
 
 1. Clonar repositorio
 2. Instalar dependencias `npm install`
-3. Iniciar servidor de desarrollo `npm run dev`
+3. Copiar el archivo .env.template y renombrarlo a .env
+4. Iniciar servidor de desarrollo `npm run dev`
 
 ## Tecnologías usadas
 
