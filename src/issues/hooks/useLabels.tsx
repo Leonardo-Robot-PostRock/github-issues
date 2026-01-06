@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getLabels } from '../actions/get-labels-action'
+import { getLabels } from '../actions'
 
 export const useLabels = () => {
 
