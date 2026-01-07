@@ -7,7 +7,7 @@ export const LabelPicker = () => {
 
   if (labelsQuery.isLoading) {
     return (
-      <LoadingSpinner />
+      <LoadingSpinner text="Cargando etiquetas..."/>
     )
   }
 
