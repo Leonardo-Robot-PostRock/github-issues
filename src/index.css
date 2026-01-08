@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply bg-gray-900 text-white py-4 px-4;
+  @apply bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white py-4 px-4 min-h-screen;
 }
 
 h1 {
