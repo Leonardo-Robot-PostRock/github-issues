@@ -14,23 +14,30 @@ export const IssueItem: FC<Props> = ({ issue }) => {
   const queryClient = useQueryClient()
 
 
-  const prefetchData = () => {
-    queryClient.prefetchQuery({
-      queryKey: ['issues', issue.number],
-      queryFn: () => getIssue(issue.number),
-      staleTime: 1000 * 60
-    })
+  // const prefetchData = () => {
+  //   queryClient.prefetchQuery({
+  //     queryKey: ['issues', issue.number],
+  //     queryFn: () => getIssue(issue.number),
+  //     staleTime: 1000 * 60
+  //   })
 
-    queryClient.prefetchQuery({
-      queryKey: ['issues', issue.number, 'comments'],
-      queryFn: () => getIssueComments(issue.number),
-      staleTime: 1000 * 60
+  //   queryClient.prefetchQuery({
+  //     queryKey: ['issues', issue.number, 'comments'],
+  //     queryFn: () => getIssueComments(issue.number),
+  //     staleTime: 1000 * 60
+  //   })
+  // }
+
+  const presetData = ( ) => {
+    queryClient.setQueryData(['issues', issue.number], issue, {
+      updatedAt: Date.now() + 1000 * 60,
     })
   }
 
   return (
     <div
-      onMouseEnter={prefetchData}
+      onMouseEnter={presetData}
+      // onMouseEnter={prefetchData}
       className="animate-fadeIn flex items-center px-2 py-3 mb-5 border rounded-md bg-slate-900 hover:bg-slate-800">
 
       {
