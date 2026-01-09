@@ -25,12 +25,12 @@ export const IssueList: FC<Props> = ({ issues, onStateChange, state }) => {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex gap-3 mb-8">
+        <div className="flex flex-wrap gap-3 mb-8">
           {filterButtons.map(({ state: filterState, label, icon: Icon, color }) => (
             <button
               key={filterState}
               onClick={() => onStateChange(filterState)}
-              className={`relative px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 text-sm ${
+              className={`relative px-3 sm:px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm ${
                 state === filterState
                   ? `bg-gradient-to-r ${color} shadow-lg shadow-blue-500/50`
                   : 'bg-slate-800 hover:bg-slate-700'
