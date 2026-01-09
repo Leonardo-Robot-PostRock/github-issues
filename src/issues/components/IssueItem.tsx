@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GithubIssue, State } from '../interfaces/issues.interface';
 import { FC } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
+import { timeSince } from '../../helpers';
 
 interface Props {
   issue: GithubIssue;
@@ -70,7 +71,7 @@ export const IssueItem: FC<Props> = ({ issue }) => {
               <div className={CSS_CLASSES.issueInfo.meta}>
                 <span className="font-mono">#{issue.number}</span>
                 <span>•</span>
-                <span>{new Date(issue.created_at).toLocaleDateString()}</span>
+                <span>{timeSince(issue.closed_at)}</span>
                 <span>•</span>
                 <span>by <span className="text-gray-300 font-semibold">{issue.user.login}</span></span>
 
