@@ -10,7 +10,7 @@ interface Props {
 }
 
 const CSS_CLASSES = {
-  container: "animate-fadeIn group relative px-4 py-4 mb-4 rounded-lg bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-600 hover:border-slate-500 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-slate-900/50 hover:-translate-y-1",
+  container: "animate-fadeIn group relative px-3 py-3 sm:px-4 sm:py-4 mb-4 rounded-lg bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-600 hover:border-slate-500 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-slate-900/50 hover:-translate-y-1",
   flexContainer: "flex flex-col sm:flex-row items-start sm:items-center gap-4",
   statusIcon: {
     container: "flex-shrink-0",
