@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { LoadingSpinner } from '../../shared';
 import { IssueList } from '../components/IssueList';
-import { LabelPicker } from '../components/LabelPicker';
+import { LabelPicker } from '../components/label-picker/LabelPicker';
 import { useIssues } from '../hooks/useIssues';
 import { State } from '../interfaces/issues.interface';
 

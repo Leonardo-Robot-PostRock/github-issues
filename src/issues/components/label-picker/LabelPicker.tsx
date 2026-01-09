@@ -1,9 +1,9 @@
 import Select from "react-select";
 import { LoadingSpinner } from "../../shared";
 import { useLabels } from "../hooks/useLabels";
-import { customStyles } from "./label-picker/styles";
-import { OptionLabel } from "./label-picker/OptionLabel";
-import { LabelOption, LabelPickerProps as Props } from "./label-picker/types";
+import { customStyles } from "./styles";
+import { OptionLabel } from "./OptionLabel";
+import { LabelOption, LabelPickerProps as Props } from "./types";
 
 const CSS_CLASSES = {
   container: "w-full",
