@@ -71,7 +71,7 @@ export const IssueItem: FC<Props> = ({ issue }) => {
               <div className={CSS_CLASSES.issueInfo.meta}>
                 <span className="font-mono">#{issue.number}</span>
                 <span>•</span>
-                <span>{timeSince(issue.closed_at)}</span>
+                <span>{timeSince(issue.created_at)}</span>
                 <span>•</span>
                 <span>by <span className="text-gray-300 font-semibold">{issue.user.login}</span></span>
 
