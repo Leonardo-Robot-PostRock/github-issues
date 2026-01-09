@@ -8,7 +8,6 @@ interface Props {
 
 export const IssueList: FC<Props> = ({ issues }) => {
   return (
-    <div className="p-2">
       <div className="max-w-4xl mx-auto">
 
         {/* Issues Count */}
@@ -29,6 +28,5 @@ export const IssueList: FC<Props> = ({ issues }) => {
           )}
         </div>
       </div>
-    </div>
   );
 };
