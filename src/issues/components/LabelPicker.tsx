@@ -1,43 +1,52 @@
+import Select from "react-select";
 import { LoadingSpinner } from "../../shared";
 import { useLabels } from "../hooks/useLabels";
+import { customStyles } from "./label-picker/styles";
+import { OptionLabel } from "./label-picker/OptionLabel";
+import { LabelOption, LabelPickerProps as Props } from "./label-picker/types";
 
-export const LabelPicker = () => {
+const CSS_CLASSES = {
+  container: "w-full",
+  wrapper: "p-3 sm:p-2",
+  title: "text-xs sm:text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide",
+  emptyMessage: "text-sm text-gray-500 text-center py-4"
+};
 
-  const { labelsQuery } = useLabels()
+export const LabelPicker = ({ onLabelSelected, selectedLabels }: Props) => {
+  const { labelsQuery } = useLabels();
 
   if (labelsQuery.isLoading) {
-    return (
-      <LoadingSpinner text="Cargando etiquetas..."/>
-    )
+    return <LoadingSpinner text="Cargando etiquetas..." />;
   }
 
+  const labelOptions: LabelOption[] =
+    labelsQuery.data?.map(label => ({
+      value: label.name,
+      label: label.name,
+      color: label.color
+    })) ?? [];
+
+  const selectedOptions = labelOptions.filter(opt => selectedLabels.includes(opt.value));
+
   return (
-    <div className="w-full">
-      <div className="p-4">
-        <h3 className="text-sm font-semibold text-slate-700 mb-4 uppercase tracking-wide">
-          Filtrar por etiqueta
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {
-            labelsQuery.data?.map(label => (
-              <button
-                key={label.id}
-                className="animate-fadeIn inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 hover:scale-105 hover:shadow-md active:scale-95"
-                style={{
-                  backgroundColor: `#${label.color}30`,
-                  border: `2px solid ${label.color}`,
-                  color: `#${label.color}`
-                }}
-              >
-                {label.name}
-              </button>
-            ))
-          }
-        </div>
-        {labelsQuery.data?.length === 0 && (
-          <p className="text-sm text-gray-500 text-center py-4">
-            No hay etiquetas disponibles
-          </p>
+    <div className={CSS_CLASSES.container}>
+      <div className={CSS_CLASSES.wrapper}>
+        <h3 className={CSS_CLASSES.title}>Filtrar por etiqueta</h3>
+        {labelOptions.length > 0 ? (
+          <Select<LabelOption, true>
+            options={labelOptions}
+            value={selectedOptions}
+            onChange={(options) => onLabelSelected(options?.map(opt => opt.value) ?? [])}
+            styles={customStyles}
+            formatOptionLabel={(opt) => <OptionLabel label={opt.label} color={opt.color} />}
+            isSearchable
+            isClearable
+            isMulti
+            menuPosition="fixed"
+            placeholder="Selecciona etiquetas..."
+          />
+        ) : (
+          <p className={CSS_CLASSES.emptyMessage}>No hay etiquetas disponibles</p>
         )}
       </div>
     </div>
