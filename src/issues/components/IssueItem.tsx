@@ -9,7 +9,7 @@ interface Props {
   issue: GithubIssue;
 }
 
-const CSS_CLASSES = {
+const classes = {
   container: "animate-fadeIn group relative px-3 py-3 sm:px-4 sm:py-4 mb-4 rounded-lg bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-600 hover:border-slate-500 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-slate-900/50 hover:-translate-y-1",
   flexContainer: "flex flex-col sm:flex-row items-start sm:items-center gap-4",
   statusIcon: {
@@ -45,30 +45,30 @@ export const IssueItem: FC<Props> = ({ issue }) => {
     <div
       onMouseEnter={presetData}
       onClick={() => navigate(`/issues/issue/${issue.number}`)}
-      className={CSS_CLASSES.container}
+      className={classes.container}
     >
-      <div className={CSS_CLASSES.flexContainer}>
+      <div className={classes.flexContainer}>
         {/* Status Icon */}
-        <div className={CSS_CLASSES.statusIcon.container}>
+        <div className={classes.statusIcon.container}>
           {issue.state === State.Open ? (
-            <div className={CSS_CLASSES.statusIcon.open}>
+            <div className={classes.statusIcon.open}>
               <FiInfo size={20} color="#ef4444" />
             </div>
           ) : (
-            <div className={CSS_CLASSES.statusIcon.closed}>
+            <div className={classes.statusIcon.closed}>
               <FiCheckCircle size={20} color="#22c55e" />
             </div>
           )}
         </div>
 
         {/* Issue Info */}
-        <div className={CSS_CLASSES.issueInfo.container}>
-          <div className={CSS_CLASSES.issueInfo.header}>
-            <div className={CSS_CLASSES.issueInfo.content}>
-              <h3 className={CSS_CLASSES.issueInfo.title}>
+        <div className={classes.issueInfo.container}>
+          <div className={classes.issueInfo.header}>
+            <div className={classes.issueInfo.content}>
+              <h3 className={classes.issueInfo.title}>
                 {issue.title}
               </h3>
-              <div className={CSS_CLASSES.issueInfo.meta}>
+              <div className={classes.issueInfo.meta}>
                 <span className="font-mono">#{issue.number}</span>
                 <span>•</span>
                 <span>{timeSince(issue.created_at)}</span>
@@ -99,14 +99,14 @@ export const IssueItem: FC<Props> = ({ issue }) => {
           <img
             src={issue.user.avatar_url}
             alt={issue.user.login}
-            className={CSS_CLASSES.avatar}
+            className={classes.avatar}
           />
         </div>
 
         {/* Comments Count */}
-        <div className={CSS_CLASSES.comments.container}>
+        <div className={classes.comments.container}>
           <FiMessageSquare size={18} className="text-gray-400 group-hover:text-blue-400 transition-colors" />
-          <span className={CSS_CLASSES.comments.text}>{issue.comments}</span>
+          <span className={classes.comments.text}>{issue.comments}</span>
         </div>
       </div>
     </div>
