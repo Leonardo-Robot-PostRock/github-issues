@@ -42,3 +42,29 @@ pre {
 .active {
   @apply bg-blue-700 border-blue-500 border-0;
 }
+
+/* Modern scrollbar for list containers */
+.modern-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(99,102,241,0.8) rgba(15,23,42,0.3); /* thumb track */
+}
+
+.modern-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15,23,42,0.18);
+  border-radius: 9999px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(99,102,241,0.95), rgba(59,130,246,0.9));
+  border-radius: 9999px;
+  border: 2px solid rgba(15,23,42,0.18);
+}
+
+.modern-scrollbar::-webkit-scrollbar-thumb:hover {
+  transform: scale(1.03);
+  background: linear-gradient(180deg, rgba(99,102,241,1), rgba(59,130,246,1));
+}
