@@ -1,14 +1,14 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { GitApp } from '../GitApp';
 
-import { ListView, IssueView } from '../issues/views';
+import { IssuesPresenter, IssueView } from '../issues/views';
 
 export const router = createBrowserRouter([
   {
     path: '/issues',
     element: <GitApp />,
     children: [
-      { path: 'list', element: <ListView /> },
+      { path: 'list', element: <IssuesPresenter /> },
       { path: 'issue/:issueNumber', element: <IssueView /> },
       { path: '*', element: <Navigate to="list" /> },
     ],
