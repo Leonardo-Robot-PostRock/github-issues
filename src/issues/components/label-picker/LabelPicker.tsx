@@ -5,7 +5,7 @@ import { OptionLabel } from "./OptionLabel";
 import { LabelOption, LabelPickerProps as Props } from "./types";
 import { useLabels } from "../../hooks/useLabels";
 
-const CSS_CLASSES = {
+const classes = {
   container: "w-full",
   wrapper: "p-2 sm:p-4",
   title: "text-xs sm:text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide",
@@ -25,9 +25,9 @@ export const LabelPicker = ({ onLabelSelected, selectedLabels }: Props) => {
   const selectedOptions = labelOptions.filter(opt => selectedLabels.includes(opt.value));
 
   return (
-    <div className={CSS_CLASSES.container}>
-      <div className={CSS_CLASSES.wrapper}>
-        <h3 className={CSS_CLASSES.title}>Filtrar por etiqueta</h3>
+    <div className={classes.container}>
+      <div className={classes.wrapper}>
+        <h3 className={classes.title}>Filtrar por etiqueta</h3>
         <Select<LabelOption, true>
           options={labelOptions}
           value={selectedOptions}
